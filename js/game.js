@@ -224,13 +224,12 @@ game.States.play = function () {
     if (show_text) this.showGameOverText();
   };
 
-  this.showGameOverText = function () {
+  this.showGameOverText = async function () {
     try {
-      const docRef = addDoc(collection(db, "records"), {
+      await addDoc(collection(db, "records"), {
         user: window.Telegram?.WebApp?.initData,
         score: this.score,
       });
-      console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
