@@ -227,7 +227,7 @@ game.States.play = function () {
   this.showGameOverText = function () {
     try {
       const docRef = addDoc(collection(db, "records"), {
-        user: Telegram?.WebApp?.initData,
+        user: window.Telegram?.WebApp?.initData,
         score: this.score,
       });
       console.log("Document written with ID: ", docRef.id);
