@@ -202,9 +202,13 @@ game.States.play = function () {
   };
 
   this.fly = function () {
-    this.bird.body.velocity.y = -350;
-    game.add.tween(this.bird).to({ angle: -30 }, 100, null, true, 0, 0, false); //上升时头朝上
-    this.soundFly.play();
+    if (this.bird.y > 0) {
+      this.bird.body.velocity.y = -350;
+      game.add
+        .tween(this.bird)
+        .to({ angle: -30 }, 100, null, true, 0, 0, false); //上升时头朝上
+      this.soundFly.play();
+    }
   };
 
   this.hitPipe = function () {
